@@ -69,6 +69,7 @@ const LeadAssessmentScreen = () => {
             <input
               className="form-control"
               type="number"
+              data-testid="monthly-income"
               placeholder="Monthly Income"
               value={monthlyIncome}
               onChange={(e) => setMonthlyIncome(parseInt(e.target.value))}
@@ -76,6 +77,7 @@ const LeadAssessmentScreen = () => {
             <input
               className="form-control"
               type="number"
+              data-testid="down-payment-amount"
               placeholder="Down Payment Amount"
               value={downPayment}
               onChange={(e) => setDownPayment(parseInt(e.target.value))}
@@ -84,6 +86,7 @@ const LeadAssessmentScreen = () => {
               className="form-control"
               type="number"
               placeholder="Requested Loan Amount"
+              data-testid="requested-loan-amount"
               value={loanAmount}
               onChange={(e) => setLoanAmount(parseInt(e.target.value))}
             />
@@ -93,6 +96,7 @@ const LeadAssessmentScreen = () => {
               </label>
               <input
                 id="bankrupty-history"
+                data-testid="bankrupty-history"
                 type="checkbox"
                 className="form-check-input"
                 value={bankruptcyHistory}
@@ -106,6 +110,7 @@ const LeadAssessmentScreen = () => {
               </label>
               <input
                 id="documents-available"
+                data-testid="documents-available"
                 className="form-check-input"
                 type="checkbox"
                 value={documentsAvailable}
@@ -113,11 +118,17 @@ const LeadAssessmentScreen = () => {
                 onClick={() => setDocumentsAvailable(!documentsAvailable)}
               />
             </div>
-            <button  data-testid="Assess" className="btn btn-primary" onClick={() => makeDecision()}>
+            <button
+              data-testid="assess"
+              className="btn btn-primary"
+              onClick={() => makeDecision()}
+            >
               Assess
             </button>
             {decision !== "" && (
-              <p className="decision">Decision: {decision}</p>
+              <p data-testid="decision" className="decision">
+                Decision: {decision}
+              </p>
             )}
           </div>
         </div>
